@@ -1,0 +1,660 @@
+title: CyberHome
+views:
+  - title: Overzicht
+    path: overzicht
+    panel: true
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: 280px 1fr
+      grid-template-rows: auto 1fr
+      grid-template-areas: |
+        "sidebar header"
+        "sidebar main"
+    cards:
+      - type: custom:mod-card
+        style: |
+          ha-card {
+            background: rgba(0,0,0,0.45);
+            border-radius: 0px;
+            height: 100vh;
+            padding: 8px 15px;
+            margin-left: -8px;        /* vul het overgebleven strookje op */
+            margin-top: -10px;
+          }
+        card:
+          type: vertical-stack
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:mushroom-title-card
+                  title:
+                    '[object Object]': null
+                  alignment: center
+                  card_mod:
+                    style: |
+                      ha-card {
+                        --title-font-size: 30px !important;
+                      }
+                - type: custom:mushroom-title-card
+                  title: '{{now().strftime(''%H:%M'')}}'
+                  alignment: center
+                  subtitle: '{{ now().day }} {{ now().strftime(''%B'') }} {{ now().year }}'
+                  card_mod:
+                    style: |
+                      ha-card {
+                        --title-font-size: 34px !important;
+                      }
+            - type: custom:button-card
+              name: Overzicht
+              icon: mdi:view-dashboard
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/overzicht
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/lovelace/overzicht" ||
+                          window.location.pathname === "/lovelace/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/lovelace/overzicht" ||
+                          window.location.pathname === "/lovelace/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/lovelace/overzicht" ||
+                          window.location.pathname === "/lovelace/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Living
+              icon: mdi:sofa
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-living
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-living/overzicht" ||
+                          window.location.pathname === "/dashboard-living/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-living/overzicht" ||
+                          window.location.pathname === "/dashboard-living/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-living/overzicht" ||
+                          window.location.pathname === "/dashboard-living/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Keuken
+              icon: mdi:table-chair
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-keuken
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-keuken/overzicht" ||
+                          window.location.pathname === "/dashboard-keuken/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-keuken/overzicht" ||
+                          window.location.pathname === "/dashboard-keuken/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-keuken/overzicht" ||
+                          window.location.pathname === "/dashboard-keuken/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Slaapkamer
+              icon: mdi:bed-double
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-slaapkamer
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-slaapkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-slaapkamer/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-slaapkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-slaapkamer/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-slaapkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-slaapkamer/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Washok
+              icon: mdi:washing-machine
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-washok
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-washok/overzicht" ||
+                          window.location.pathname === "/dashboard-washok/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-washok/overzicht" ||
+                          window.location.pathname === "/dashboard-washok/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-washok/overzicht" ||
+                          window.location.pathname === "/dashboard-washok/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Badkamer
+              icon: mdi:shower-head
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-badkamer
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-badkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-badkamer/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-badkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-badkamer/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-badkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-badkamer/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Dressing
+              icon: mdi:wardrobe
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-dressing
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-dressing/overzicht" ||
+                          window.location.pathname === "/dashboard-dressing/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-dressing/overzicht" ||
+                          window.location.pathname === "/dashboard-dressing/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-dressing/overzicht" ||
+                          window.location.pathname === "/dashboard-dressing/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Kinderkamer
+              icon: mdi:bed
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-kinderkamer
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-kinderkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-kinderkamer/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-kinderkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-kinderkamer/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-kinderkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-kinderkamer/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Bar
+              icon: mdi:glass-mug-variant
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-bar
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-bar/overzicht" ||
+                          window.location.pathname === "/dashboard-bar/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-bar/overzicht" ||
+                          window.location.pathname === "/dashboard-bar/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-bar/overzicht" ||
+                          window.location.pathname === "/dashboard-bar/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Zolder
+              icon: mdi:home-roof
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-zolder
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-zolder/overzicht" ||
+                          window.location.pathname === "/dashboard-zolder/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-zolder/overzicht" ||
+                          window.location.pathname === "/dashboard-zolder/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-zolder/overzicht" ||
+                          window.location.pathname === "/dashboard-zolder/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: Speelkamer
+              icon: mdi:gamepad-round
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-speelkamer
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-speelkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-speelkamer/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-speelkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-speelkamer/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-speelkamer/overzicht" ||
+                          window.location.pathname === "/dashboard-speelkamer/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+            - type: custom:button-card
+              name: test
+              icon: mdi:test-tube
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-test/overzicht
+              layout: icon_name
+              styles:
+                card:
+                  - width: 250px
+                  - height: 50px
+                  - padding: 8px
+                  - border-radius: 10px
+                  - display: flex
+                  - flex-direction: row
+                  - align-items: center
+                  - justify-content: flex-start
+                  - box-shadow: none
+                  - background-color: |
+                      [[[
+                        // TRUE ALS PAGINA GEOPEND IS
+                        const active =
+                          window.location.pathname === "/dashboard-test/overzicht" ||
+                          window.location.pathname === "/dashboard-test/overzicht";
+
+                        return active
+                          ? "#7CFC90"        // actief = lichtgroen
+                          : "rgba(50,50,50,0.4)"; // normaal
+                      ]]]
+                name:
+                  - font-size: 16px
+                  - justify-self: start
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-test/overzicht" ||
+                          window.location.pathname === "/dashboard-test/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+                icon:
+                  - width: 28px
+                  - margin-right: 12px
+                  - color: |
+                      [[[
+                        const active =
+                          window.location.pathname === "/dashboard-test/overzicht" ||
+                          window.location.pathname === "/dashboard-test/overzicht";
+
+                        return active ? "black" : "white";
+                      ]]]
+        view_layout:
+          grid-area: sidebar
