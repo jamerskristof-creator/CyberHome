@@ -18,3 +18,7 @@ Een strak, donker, icoon-gebaseerd navigatiemenu met ruimte voor meerdere subpag
 4. Sla op en vernieuw je dashboard.
 
 Ik blijf deze repository updaten naarmate mijn eigen dashboard evolueert (pagina’s, extra views, theming, ...).
+
+## Screenshot
+
+![CyberHome Dashboard](https://raw.githubusercontent.com/jamerskristof-creator/CyberHome/main/Dashboard.jpg)
